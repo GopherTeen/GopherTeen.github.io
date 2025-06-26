@@ -1,0 +1,137 @@
+:root {
+    /* 尺寸 & 间距 */
+    --max-width: 800px;
+    --padding: 1rem;
+    --line-height: 1.6;
+
+    /* 颜色 */
+    --color-text: #333;
+    --color-bg: #f0f4f8;
+    --color-bg-dark: #1e1e2f;
+    --color-text-dark: #ddd;
+    --brand-blue: #2a9df4;
+}
+
+/* ————— Layout & Typography ————— */
+body {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--padding);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    line-height: var(--line-height);
+    background: var(--color-bg);
+    color: var(--color-text);
+    transition: background 0.3s, color 0.3s;
+}
+
+header.site-header,
+footer.site-footer {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+main.content {
+    margin-bottom: 2rem;
+}
+
+article.post h2 {
+    margin-top: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.post-meta time {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ————— Theme Variables & Switch ————— */
+body.dark {
+    background: var(--color-bg-dark);
+    color: var(--color-text-dark);
+}
+
+/* ————— Components ————— */
+.btn-toggle {
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.clock {
+    font-size: 1rem;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    color: var(--brand-blue);
+    margin-bottom: 1rem;
+}
+
+.hero-quote {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.about-section {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.icon-weixin::before {
+    content: "🟢";
+    margin-right: 0.5rem;
+}
+
+.icon-qq::before {
+    content: "🔵";
+    margin-right: 0.5rem;
+}
+
+.icon-mail::before {
+    content: "✉️";
+    margin-right: 0.5rem;
+}
+
+/* ————— Accessibility Helpers ————— */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ————— Responsive ————— */
+@media (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    .hero-section {
+        padding: 2rem 0.5rem;
+    }
+}
