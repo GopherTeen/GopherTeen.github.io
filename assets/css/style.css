@@ -1,0 +1,28 @@
+body {
+    max-width: 800px;
+    margin: auto;
+    font-family: sans-serif;
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+header,
+footer {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+article h2 {
+    margin-top: 1.5rem;
+    font-size: 1.4rem;
+}
+
+time {
+    color: #666;
+    font-size: 0.9rem;
+}
