@@ -1,68 +1,88 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
     <head>
-        <title>我的个人博客</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
-            header {
-                background-color: #333;
-                color: white;
-                padding: 10px 20px;
-                text-align: center;
-            }
-            nav {
-                margin: 10px 0;
-                text-align: center;
-            }
-            nav a {
-                margin: 0 15px;
-                text-decoration: none;
-                color: #333;
-            }
-            main {
-                padding: 20px;
-            }
-            article {
-                margin-bottom: 20px;
-                border-bottom: 1px solid #ccc;
-                padding-bottom: 10px;
-            }
-            footer {
-                text-align: center;
-                padding: 10px;
-                background-color: #333;
-                color: white;
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-            }
-        </style>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>个人博客 - GopherTeen</title>
+        <link rel="stylesheet" href="assets/css/style.css" />
     </head>
     <body>
-        <header>
-            <h1>我的个人博客</h1>
+        <!-- 顶部导航与切换按钮 -->
+        <header class="site-header">
+            <button id="theme-toggle" class="btn-toggle" aria-label="切换主题">🌙</button>
+            <div class="clock" id="clock" aria-live="off"></div>
         </header>
-        <nav>
-            <a href="#home">首页</a>
-            <a href="#about">关于我</a>
-            <a href="#contact">联系我</a>
-        </nav>
-        <main>
-            <article>
-                <h2>博客文章标题 1</h2>
-                <p>这是我的第一篇博客文章内容。</p>
-            </article>
-            <article>
-                <h2>博客文章标题 2</h2>
-                <p>这是我的第二篇博客文章内容。</p>
-            </article>
+
+        <!-- 站点介绍区域 -->
+        <section class="hero-section">
+            <h1 class="hero-title">GopherTeen</h1>
+
+            <p class="hero-quote" id="quote"></p>
+            <script>
+                // 随机名言列表
+                const quotes = [
+                    "生活就像海洋，只有意志坚强的人才能到达彼岸。――马克思",
+                    "成功的秘诀在于永不改变既定的目标。――乔治·桑",
+                    "人生的价值，即以其人对于当代所做的工作为尺度。――徐玮",
+                    "读书破万卷，下笔如有神。――杜甫",
+                    "不积跬步，无以至千里；不积小流，无以成江海。――荀子",
+                ];
+
+                // 随机选择名言
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+                // 替换页面内容
+                document.getElementById("quote").textContent = randomQuote;
+            </script>
+        </section>
+
+        <!-- 文章区示例 -->
+        <main class="content" id="posts-container">
+            <!-- 文章内容将通过 JavaScript 动态加载 -->
         </main>
-        <footer>
-            <p>© 2023 我的个人博客</p>
+
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script>
+            // 动态加载 Markdown 文件
+            async function loadPosts() {
+                const postsContainer = document.getElementById("posts-container");
+
+                // 假设 posts 文件夹中有多个 Markdown 文件
+                const postFiles = ["posts/2025-06-26-hello-world.md", "posts/2025-06-26-test.md"]; // 文件路径列表
+
+                for (const file of postFiles) {
+                    try {
+                        const response = await fetch(file);
+                        const markdown = await response.text();
+                        const html = marked(markdown); // 使用 marked.js 转换 Markdown 为 HTML
+
+                        const article = document.createElement("article");
+                        article.classList.add("post");
+                        article.innerHTML = html;
+                        postsContainer.appendChild(article);
+                    } catch (error) {
+                        console.error(`无法加载文件 ${file}:`, error);
+                    }
+                }
+            }
+
+            // 加载文章
+            loadPosts();
+        </script>
+
+        <!-- 关于我 & 联系方式 -->
+        <aside class="about-section">
+            <h2>关于我</h2>
+            <p>我的团队：<a href="#" class="team-link">NightCloud Team</a></p>
+            <ul class="contact-list">
+                <li><span class="icon icon-weixin" aria-hidden="true"></span><span class="sr-only">微信：</span>用户名</li>
+                <li><span class="icon icon-qq" aria-hidden="true"></span><span class="sr-only">QQ：</span>号码</li>
+                <li><span class="icon icon-mail" aria-hidden="true"></span><span class="sr-only">邮箱：</span><a href="mailto:example@mail.com">example@mail.com</a></li>
+            </ul>
+        </aside>
+
+        <footer class="site-footer">
+            <p>&copy; 2025 GopherTeen. All rights reserved.</p>
         </footer>
 
         <script src="assets/js/main.js"></script>
