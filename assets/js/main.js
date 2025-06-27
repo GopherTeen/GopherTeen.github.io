@@ -20,7 +20,6 @@
             postListEl.appendChild(item);
         });
 })();
-<<<<<<< HEAD
 
 // 深浅色模式切换
 const toggle = document.getElementById("theme-toggle");
@@ -39,5 +38,3 @@ function updateClock() {
 }
 setInterval(updateClock, 1000);
 updateClock();
-=======
->>>>>>> 73c4d1b62fe429e0cb50f66112f8b3c2955b9cf7

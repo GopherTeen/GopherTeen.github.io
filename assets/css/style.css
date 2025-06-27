@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 :root {
     /* 尺寸 & 间距 */
     --max-width: 800px;
@@ -27,41 +26,19 @@ body {
 
 header.site-header,
 footer.site-footer {
-=======
-body {
-    max-width: 800px;
-    margin: auto;
-    font-family: sans-serif;
-    line-height: 1.6;
-    padding: 1rem;
-}
-
-header,
-footer {
->>>>>>> 73c4d1b62fe429e0cb50f66112f8b3c2955b9cf7
     text-align: center;
     margin-bottom: 2rem;
 }
 
-<<<<<<< HEAD
 main.content {
     margin-bottom: 2rem;
 }
 
 article.post h2 {
-=======
-header nav a {
-    margin: 0 1rem;
-    text-decoration: none;
-}
-
-article h2 {
->>>>>>> 73c4d1b62fe429e0cb50f66112f8b3c2955b9cf7
     margin-top: 1.5rem;
     font-size: 1.4rem;
 }
 
-<<<<<<< HEAD
 .post-meta time {
     color: #666;
     font-size: 0.9rem;
@@ -157,9 +134,4 @@ body.dark {
     .hero-section {
         padding: 2rem 0.5rem;
     }
-=======
-time {
-    color: #666;
-    font-size: 0.9rem;
->>>>>>> 73c4d1b62fe429e0cb50f66112f8b3c2955b9cf7
 }
