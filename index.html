@@ -37,54 +37,11 @@
         </section>
 
         <!-- 文章区示例 -->
-        <main class="content" id="posts-container">
-            <!-- 文章内容将通过 JavaScript 动态加载 -->
+        <main class="content">
+            <div id="post-list"></div>
         </main>
 
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <script>
-            // 动态加载 Markdown 文件
-            async function loadPosts() {
-                const postsContainer = document.getElementById("posts-container");
-
-                // 假设 posts 文件夹中有多个 Markdown 文件
-                const postFiles = ["posts/2025-06-26-hello-world.md", "posts/2025-06-26-test.md"]; // 文件路径列表
-
-                for (const file of postFiles) {
-                    try {
-                        const response = await fetch(file);
-                        const markdown = await response.text();
-                        const html = marked(markdown); // 使用 marked.js 转换 Markdown 为 HTML
-
-                        const article = document.createElement("article");
-                        article.classList.add("post");
-                        article.innerHTML = html;
-                        postsContainer.appendChild(article);
-                    } catch (error) {
-                        console.error(`无法加载文件 ${file}:`, error);
-                    }
-                }
-            }
-
-            // 加载文章
-            loadPosts();
-        </script>
-
-        <!-- 关于我 & 联系方式 -->
-        <aside class="about-section">
-            <h2>关于我</h2>
-            <p>我的团队：<a href="#" class="team-link">NightCloud Team</a></p>
-            <ul class="contact-list">
-                <li><span class="icon icon-weixin" aria-hidden="true"></span><span class="sr-only">微信：</span>用户名</li>
-                <li><span class="icon icon-qq" aria-hidden="true"></span><span class="sr-only">QQ：</span>号码</li>
-                <li><span class="icon icon-mail" aria-hidden="true"></span><span class="sr-only">邮箱：</span><a href="mailto:example@mail.com">example@mail.com</a></li>
-            </ul>
-        </aside>
-
-        <footer class="site-footer">
-            <p>&copy; 2025 GopherTeen. All rights reserved.</p>
-        </footer>
-
+        <script src="https://cdn.jsdelivr.net/npm/marked@4.0.12/marked.min.js"></script>
         <script src="assets/js/main.js"></script>
     </body>
 </html>
