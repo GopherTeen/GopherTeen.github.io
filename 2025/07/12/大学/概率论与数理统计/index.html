@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>概率论与数理统计 | Gopherの小木屋</title><meta name="author" content="Gopher"><meta name="copyright" content="Gopher"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第一章常见公式： $A - B &#x3D; A - A \cdot B&#x3D;A \cdot \overline {B}$ $P(A-B) &#x3D; P(A) - P(AB)$ 概率的有限可加性：若 $A$, $B$ 互斥 $( A \cdot B &#x3D; \varnothing )$，则 $P(A \cup B) &#x3D; P(A) + P(B)$ 条件概率：$P(B|A)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率论与数理统计">
+<meta property="og:url" content="https://gopherteen.github.io/2025/07/12/%E5%A4%A7%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Gopherの小木屋">
+<meta property="og:description" content="第一章常见公式： $A - B &#x3D; A - A \cdot B&#x3D;A \cdot \overline {B}$ $P(A-B) &#x3D; P(A) - P(AB)$ 概率的有限可加性：若 $A$, $B$ 互斥 $( A \cdot B &#x3D; \varnothing )$，则 $P(A \cup B) &#x3D; P(A) + P(B)$ 条件概率：$P(B|A)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gopherteen.github.io/images/%E5%A4%B4%E5%83%8F/1.png">
+<meta property="article:published_time" content="2025-07-11T16:34:23.000Z">
+<meta property="article:modified_time" content="2025-07-13T05:57:11.391Z">
+<meta property="article:author" content="Gopher">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="概率">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gopherteen.github.io/images/%E5%A4%B4%E5%83%8F/1.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "概率论与数理统计",
+  "url": "https://gopherteen.github.io/2025/07/12/%E5%A4%A7%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/",
+  "image": "https://gopherteen.github.io/images/%E5%A4%B4%E5%83%8F/1.png",
+  "datePublished": "2025-07-11T16:34:23.000Z",
+  "dateModified": "2025-07-13T05:57:11.391Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Gopher",
+      "url": "https://gopherteen.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="https://gopherteen.github.io/2025/07/12/%E5%A4%A7%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '概率论与数理统计',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/_custom/mathfix.css"><meta name="generator" content="Hexo 7.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/%E5%A4%B4%E5%83%8F/1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Gopherの小木屋</span></a><a class="nav-page-title" href="/"><span class="site-name">概率论与数理统计</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">概率论与数理统计</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-11T16:34:23.000Z" title="发表于 2025-07-12 00:34:23">2025-07-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-13T05:57:11.391Z" title="更新于 2025-07-13 13:57:11">2025-07-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">大学课程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">3.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p>常见公式：</p>
+<p>$A - B &#x3D; A - A \cdot B&#x3D;A \cdot \overline {B}$</p>
+<p>$P(A-B) &#x3D; P(A) - P(AB)$</p>
+<p>概率的有限可加性：若 $A$, $B$ 互斥 $( A \cdot B &#x3D; \varnothing )$，则 $P(A \cup B) &#x3D; P(A) + P(B)$</p>
+<p>条件概率：$P(B|A) &#x3D; \frac{P(AB)}{P(A)}$</p>
+<p>全概率公式：$P(B)&#x3D;P(A_1)P(B|A_1) + P(A_2)P(B|A_2) + \cdots +P(A_n)P(B|A_n) &#x3D;  \underset{i&#x3D;1}{\overset{n}{\sum}}P(A_i)P(B|A_i)$</p>
+<p>贝叶斯公式：$P(A_j|B) &#x3D; \frac{P(A_j B)}{P(B)} &#x3D; \frac{P(A_j)P(B|A_j)}{ \underset{i&#x3D;1}{\overset{n}{\sum}}P(A_i)P(B|A_i)}$</p>
+<p>事件的独立性：</p>
+<p>相互独立的事件满足：$P(B| A) &#x3D; P(B|\overline{A}) &#x3D; P(B)$</p>
+<p>等价定义：$P(AB) &#x3D; P(A)P(B)$，$P(\overline{A}B)&#x3D;P(\overline{A})P(B)_{[1]}$，$P(B|A) + P(\overline{B}|\overline{A}) &#x3D; 1$</p>
+<p>$$<br>_{[1]}<br>\begin{cases}<br>P(\overline{A}B) &#x3D; P(B) - P(AB)\<br>P(\overline{A})P(B) &#x3D; (1-P(A))\cdot P(B) &#x3D; P(B)-P(A)P(B)\<br>\end{cases}<br>\Longleftrightarrow P(AB) &#x3D; P(A)P(B)<br>$$</p>
+<p>三个事件的独立性：</p>
+<div align="left">
+\begin{aligned}
+\text{[1]} \quad & P(AB)=P(A)P(B) \\
+\text{[2]} \quad & P(AC)=P(A)P(C) \\
+\text{[3]} \quad & P(BC)=P(B)P(C) \\
+\text{[4]} \quad & P(ABC)=P(A)P(B)P(C)
+\end{aligned}
+</div>
+
+<p>概率模型：古典概型、几何概型、伯努利概型</p>
+<p>二项概率公式三要素：n 次独立重复，两种结果（$A，\overline{A}$），$P(A) &#x3D; p(恒定)$</p>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p>分布函数$F(x)$的几何意义：$F(x)$ 表示 $R.V. X$ 落在点 $x$ 的左半区间的概率，即 $P{X \le x}$。</p>
+<p>某点处的概率：$P{X&#x3D;a} &#x3D; P{X \le a}-P{X &lt; a} &#x3D; F(a) - \lim\limits_{x \to a^-}P{X\le x} &#x3D; F(a) - F(a-0)$</p>
+<p>区间上的概率：$P{X \le a}&#x3D; F(a)，P{X &lt; a} &#x3D; \lim\limits_{x \to a^-}F(x) &#x3D; F(a-0)$</p>
+<p>分布函数的性质：非负性，有界性（规范性），单调不减性，右连续性（需要用海涅定理加以证明）</p>
+<p>常见的离散型随机变量的分布：</p>
+<p>（1）0-1 分布 $x \sim (0-1)$</p>
+<p>$\cdots E(X) &#x3D; p, \ D(X) &#x3D; p(1-p)$</p>
+<p>（2）二项分布 $x \sim B(n, p)$</p>
+<p>$\cdots E(X) &#x3D; np, \ D(X) &#x3D; np(1-p)$</p>
+<p>（3）泊松分布 $x \sim P(\lambda)$ $P{X&#x3D;k}&#x3D;\frac{\lambda^k e^{-\lambda}}{k!}$ $(k \in N^{+}，\lambda &gt; 0)$</p>
+<p>$\cdots E(X) &#x3D; \lambda, \ D(X) &#x3D; \lambda$</p>
+<p>泊松定理：当二项分布的 $n$ 足够大，$p$ 充分小时，近似于泊松分布，其中 $\lambda &#x3D; np$</p>
+<p>（4）超几何分布 $x \sim H(N, M, n)$ $P{X&#x3D;k} &#x3D; \frac{C_{M}^{k} C_{N-M}^{n-k}}{C_{N}^{n}}$ $(k &#x3D; 0,1,2, \cdots , \min {M, n})$</p>
+<p>（5）几何分布 $x \sim G(p)$ $P{X&#x3D;k} &#x3D; (1-p)^{k-1}p $  $(k \in N^+)$</p>
+<p>设 $R.V.X$ 的分布函数为 $F(x)$，如果存在一个函数 $f(x) \ge 0$，使得 $F(x) &#x3D; \int_{-\infty}^{x}f(t)dt$，则称 $X$ 为连续型 $R.V.$，$f(x)$ 为 $x$ 的概率密度函数，简称密度函数。</p>
+<p>$[注]$ 某点处的概率为 0。</p>
+<p>常见的连续型随机变量的分布：</p>
+<p>（1）均匀分布 $x \sim U(a, b)$</p>
+<p>$$<br>f(x)&#x3D;<br>\begin{cases}<br>\frac{1}{b-a}, &amp; a &lt; x &lt; b \<br>0, &amp; \text{else}<br>\end{cases}<br>$$</p>
+<p>$\cdots E(X) &#x3D; \frac{a+b}{2}, \ D(X) &#x3D; \frac{(b-a)^2}{12}$</p>
+<p>（2）指数分布 $x \sim e(\lambda)$</p>
+<p>$$<br>f(x) &#x3D;<br>\begin{cases}<br>\lambda e^{-\lambda x}, &amp; x &gt; 0 \<br>0, &amp; x \le 0<br>\end{cases}<br>$$</p>
+<p>$$<br>F(x) &#x3D;<br>\begin{cases}<br>1 - e^{-\lambda x}, &amp; x &gt; 0 \<br>0, &amp; x \le 0<br>\end{cases}<br>$$</p>
+<p>$\cdots E(X) &#x3D; \frac{1}{\lambda}, \ D(X) &#x3D; \frac{1}{\lambda^2}$</p>
+<p>（无记忆性：$P{X &gt; t_0 + T \space|\space X &gt; t_0} &#x3D; P{X &gt; T}$）</p>
+<p>（3）正态分布 $x \sim N(\mu, \sigma^2)$ $f(x)&#x3D;\frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2 \sigma^2}}$ $\frac{x-\mu}{\sigma} \sim N(0, 1)$</p>
+<p>标准正态分布：$x \sim N(0, 1)$ $\phi(x) &#x3D; \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$</p>
+<p>（$\int_{-\infty}^{+\infty}e^{-\frac{x^2}{A}}dx &#x3D; \sqrt{A\pi}$，$A&gt;0$）</p>
+<p>连续型随机变量函数的分布：</p>
+<p>设 $R.V.X$ 的密度为 $f_{X}(x)$，函数 $Y &#x3D; g(X)$，且 $y &#x3D; g(x)$ 为单调函数，则$Y&#x3D;g(X)$ 的密度为</p>
+<p>$$<br>f_{Y}(y)&#x3D;<br>\begin{cases}<br>f_X(h(y)) \cdot |h’(y)|, &amp; \alpha &lt; y &lt; \beta \<br>0, &amp; \text{else}<br>\end{cases}<br>$$</p>
+<p>其中 $h(y)$ 为 $y&#x3D;g(x)$ 的反函数。</p>
+<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><p>设 $(X, Y)$ 的联合分布函数为 $F(x, y)$ ，若存在非负函数 $f(x, y) \ge 0$ 使得 $F(x, y) &#x3D; \int_{-\infty}^{x}\int_{-\infty}^{y}f(u, v) dudv$ 成立，则称 $(X, Y)$ 为二维连续型 $R.V.$ $f(x, y)$ 称为 $(X, Y)$ 的联合密度函数。</p>
+<blockquote>
+<p>若函数 $f(x, y)$ 在点 $(x, y)$ 处连续，则 $\frac{\partial^2F(x, y)}{\partial x \partial y} &#x3D; f(x, y)$。</p>
+<p>区域概率：$P{(X,Y)\in D} &#x3D; \iint_D f(x, y) dxdy$。</p>
+</blockquote>
+<p>常见的二维连续型分布：</p>
+<p>（1）二维均匀分布：$(X, Y) \sim U(D)$</p>
+<p>$$<br>f(x, y) &#x3D;<br>\begin{cases}<br>\frac{1}{S_D}, &amp; (x, y) \in D \<br>0, &amp; \text{else}<br>\end{cases}<br>$$</p>
+<p>（2）二维正态分布：$(X, Y) \sim N(\mu_1, \mu_2;\space \sigma^2, \sigma^2; \rho)$ $f(x, y) &#x3D; \frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\cdot exp{-\frac{1}{2(1-\rho^2)}[\frac{(x-\mu_1)^2}{\sigma_1^2} - 2\rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}+\frac{(y-\mu_2)^2}{\sigma_2^2}]}$ $(\sigma_1&gt;0, \sigma_2&gt;0, -1\le \rho \le 1)$</p>
+<p>边缘分布函数：$F_X(x) &#x3D; P{X\le x}&#x3D;\int_{-\infty}^{x} \int_{-\infty}^{+\infty}f(u, v) \space dudv$</p>
+<p>边缘密度函数：$f_X(x) &#x3D; \int_{-\infty}^{+\infty}f(x, y) \space dy$</p>
+<p>$条件分布 &#x3D; \frac{联合分布}{边缘分布}$</p>
+<p>条件密度函数：设 $R.V. (X, Y)$ 的概率密度为 $f(x, y)$，固定 $Y &#x3D; y$，当 $f_Y(y) \ne 0$，称 $f_{X|Y}(x|y) &#x3D; \frac{f(x\cdot y)}{f_Y(y)}$ 为 $X$ 在 $Y&#x3D;y$ 条件下的条件密度。</p>
+<p>设 $(X, Y)$ 的联合分布函数为 $F(x, y)$ ，$F_X(x), F_Y(y)$ 分别为 $X$ 与 $Y$ 的边缘分布函数，若 $F(x, y) &#x3D; F_X(x)F_Y(y)$，则 $R.V.$ $X$ 与 $Y$ 相互独立。</p>
+<p>卷积公式求联合密度：</p>
+<p>设 $(X, Y) \sim f(x, y)$，$X$ 与 $Y$ 相互独立，则 $Z&#x3D;X+Y$ 的密度 $F_Z(z) &#x3D; \int_{-\infty}^{+\infty}f_X(x) \cdot f_Y(z-x) \space dx$。</p>
+<p>[推广]$\space$ $X\sim N(\mu_1, \sigma_1^2)，Y \sim N(\mu_2, \sigma_2^2)$，X 与 Y 独立 $\longrightarrow$ $aX+bY \sim N(a\mu_1+b\mu_2, a^2\sigma_1^2+b^2\sigma_2^2)$。</p>
+<p>[推广]$\space$ $Z &#x3D; \max{X, Y}, \space F_Z(z) &#x3D; P{Z \le z} &#x3D; P{X \le z, Y \le z} &#x3D; F_X(z) \cdot F_Y(z)$。</p>
+<p>[推广]$\space$ $Z &#x3D; \min{X, Y}, \space F_Z(z) &#x3D; P{Z \le z} &#x3D; 1 - P{X &gt; z, Y &gt; z} &#x3D;1- {1- F_X(z)} \cdot {1-F_Y(z)}$。</p>
+<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><p>连续型 $R.V.$ 的数学期望：设 $R.V. X$ 的密度函数为 $f_X(x)$，则称 $E(X) &#x3D; \int_{-\infty}^{+\infty}x \cdot f_X(x) dx$ 为 $x$ 的数学期望。</p>
+<p>若 $Y &#x3D; g(X)$，$X \sim f_X(x)$，则 $E(g(X)) &#x3D; \int_{-\infty}^{+\infty}g(x) \cdot f_X(x) dx$ 为 $Y&#x3D;g(X)$ 的数学期望。</p>
+<p>若 $Z&#x3D;g(X, Y)$，且 $(X, Y) \sim f(x, y)$，则 $E(g(X, Y)) &#x3D; \int_{-\infty}^{+\infty}\int_{\infty}^{+\infty} g(x, y) \cdot f(x, y) \space dxdy$ 为 $Z &#x3D; g(X, Y)$ 的数学期望。</p>
+<p>数学期望的性质：</p>
+<div align="left">
+\begin{aligned}
+\text{[1]} \quad & E(C) = C \quad (C \text{ is constant}) \\
+\text{[2]} \quad & E(C \cdot X) = C E(X) \\
+\text{[3]} \quad & E(X + Y) = E(X) + E(Y) \\
+\text{[4]} \quad & \text{若 } X \text{ 与 } Y \text{ 独立，} E(XY) = E(X) \cdot E(Y)
+\end{aligned}
+</div>
+
+<p>方差：$D(X) &#x3D; E [(X-E(X))^2]$，$D(X) &#x3D; E(X^2) - E^2(X)$</p>
+<p>方差的性质：</p>
+<div align="left">
+\begin{aligned}
+\text{[1]} \quad & D(C) = 0 \quad (C \ is\ constant) \\
+\text{[2]} \quad & D(C \cdot X) = C^2 D(X) \\
+\text{[3]} \quad & D(X+Y) = D(X) + D(Y) + 2[E(XY) - E(X)E(Y)] \\
+\quad & \cdots 若 X 与 Y 独立，D(X+Y)=D(X)+D(Y) \\ 
+\text{[4]} \quad & 若 D(X)=0, 则 P\{X=E(X)\}=1 
+\end{aligned}
+</div>
+
+<p>协方差：设 $(X, Y)$ 为二维 $R.V.$，称 $Cov(X, Y) &#x3D; E[(X-E(X))][Y-E(Y)]$ 为 $X$ 与 $Y$ 的协方差。</p>
+<p>$$<br>\begin{align}<br>&amp;————————&amp;\<br>&amp;[1]\ Cov(X,Y) &#x3D; E(XY) - E(X)E(Y)\<br>&amp;\cdots 若\ X\ 与\ Y\ 独立,\ Cov(X, Y)&#x3D; 0\<br>&amp;\cdots Cov(X,X) &#x3D; D(X), \ Cov(X, C)&#x3D;0\<br>&amp;[2]\ D(X+Y) &#x3D; D(X) + D(Y) + 2Cov(X,Y)\<br>&amp;[3]\ Cov(X,Y) &#x3D; Cov(Y,X)\<br>&amp;[4]\ Cov(aX, bY) &#x3D; ab\ Cov(X,Y)\<br>&amp;[5]\ Cov(X+Y, Z) &#x3D; Cov(X, Z) + Cov(Y, Z)\<br>\end{align}<br>$$</p>
+<p>相关系数：$\rho_{XY} &#x3D; \frac{Cov(X, Y)}{\sqrt{D(X)}\sqrt{D(Y)}}$</p>
+<p>$X$ 与 $Y$ 独立（无关） $\longrightarrow$ $X$ 与 $Y$ 不相关（没有线性关系）</p>
+<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><p>切比雪夫不等式：$\forall \epsilon &gt; 0, \ P{|X-E(X)| \ge \epsilon} \le \frac{D(X)}{\epsilon^2}$</p>
+<p>切比雪夫大数定律：设 $X_1, X_2, \cdots, X_n, \cdots$ 是相互独立的 $R.V.$ 序列，且 $E(X_i), D(X_i)$ 均存在，$D(X_i) \le C$，$i \in N^+$。记 $\overline{X} &#x3D; \frac{1}{n}  \underset{i&#x3D;1}{\overset{n}{\sum}}X_i$ ，则 $\forall{\epsilon} &gt; 0$，有 $\lim\limits_{n\rightarrow \infty} P{|\overline{X} - E(\overline{X})| &lt;\epsilon} &#x3D; 1$ $\Longleftrightarrow$ $\overline{X} \ \overset{P}{\longrightarrow} E(\overline{X})$。</p>
+<p>伯努利大数定律：设 $n_A$ 为 $n$ 次独立重复实验中事件 $A$ 发生的次数，$P(A) &#x3D; \rho$，则 $\forall \epsilon &gt; 0$，有 $\lim\limits_{n \rightarrow \infty} P{|\frac{n_A}{n}-\rho| &lt;\epsilon} &#x3D; 1$ $\Longleftrightarrow$ $\frac{n_A}{n} \overset{P}{\longrightarrow} \rho$。</p>
+<p>辛钦大数定律：设 $X_1, X_2, \cdots, X_n, \cdots$ 是相互独立的 $R.V.$ 序列，且服从同一分布，$E(X_i)$ 存在，则 $\forall{\epsilon} &gt; 0$，有 $\lim\limits_{n\rightarrow\infty} P{|\overline{X} - E(\overline{X})| &lt; \epsilon} &#x3D; 1$ $\Longleftrightarrow$ $\overline{X} \overset{P}{\longrightarrow} E(\overline(X))$。</p>
+<p>独立同分布的中心极限定理（勒维——林德伯格中心极限定理）：</p>
+<p>设 $X_1, X_2, \cdots, X_n, \cdots$ 是相互独立的 $R.V.$ 序列，且服从同一分布，具有相同的数学期望与方差，记 $E(X_i) &#x3D; \mu, D(X_i) &#x3D; \sigma^2, i\in N^+$，则当 $n$ 充分大时，$ \underset{i&#x3D;1}{\overset{n}{\sum}}x_i \sim N(n\mu, n\sigma^2)$。</p>
+<p>（二项分布的中心极限定理（棣莫佛——拉普拉斯中心极限定理）是上述定理的特化，指 $R.V.$ 序列服从于 0-1 分布的情况）</p>
+<h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><p>总体，个体，样本，简单随机样本（可简称样本），样本容量，样本观测值（样本值）</p>
+<p>样本分布函数（经验分布函数）</p>
+<p>统计量（不含未知参数的样本函数）：样本均值，样本方差（修正：$S^2&#x3D;\frac{1}{n-1} \underset{i&#x3D;1}{\overset{n}{\sum}} (X_i-\overline{X})^2$），样本标准差</p>
+<p>样本 $k$ 阶原点矩：$A_k &#x3D; \frac{1}{n}  \underset{i&#x3D;1}{\overset{n}{\sum}} X_i^k$。</p>
+<p>样本 $k$ 阶中心距：$B_k &#x3D; \frac{1}{n}  \underset{i&#x3D;1}{\overset{n}{\sum}}(X_i -\overline{X}) ^k$。</p>
+<p>抽样分布：统计量 $g(x_1, x_2, \cdots, x_n)$ 的分布称为抽样分布。</p>
+<p>（1）卡方分布（$\chi^2$ 分布）：</p>
+<p>设 $X_1, X_2, \cdots, X_n$ 相互独立，且均服从 $N(0, 1)$，则有 $X &#x3D;  \underset{i&#x3D;1}{\overset{n}{\sum}}X_i^2$ 服从自由度为 $n$ 的卡方分布，即 $X \sim \chi^2(n)$。</p>
+<p>密度函数为</p>
+<p>$$<br>f(y) &#x3D;<br>\begin{cases}<br>\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}y^{\frac{n}{2}-1}e^{-\frac{y}{2}}, &amp; y &gt; 0 \<br>0, &amp; y \le 0<br>\end{cases}<br>$$</p>
+<p>其中 $\Gamma(\frac{n}{2}) &#x3D; \int_0^{+\infty}x^{\frac{n}{2}-1}e^{-x} \ dx$。</p>
+<p>$$<br>\begin{align}<br>&amp;————————&amp;\<br>&amp;[1]\ X\sim\chi^2(n_1), Y\sim\chi^2(n_2), 独立 \Longrightarrow X+Y\sim\chi^2(n_1+n_2) \<br>&amp;[2]\ X\sim\chi^2(n),E(X)&#x3D;n, D(X)&#x3D;2n\<br>\end{align}<br>$$</p>
+<p>（2）$t$ 分布：</p>
+<p>若 $X_1 \sim N(0, 1)$，$X_2 \sim \chi^2(n)$，独立，则 $X&#x3D;\frac{X_1}{\sqrt{X_2&#x2F;n}}$ 服从自由度为 $n$ 的 $t$ 分布，即 $X\sim t(n)$。</p>
+<p>密度函数为 $h(t) &#x3D; \frac{\Gamma(\frac{n+1}{2})}{\sqrt{n\pi}\Gamma(\frac{n}{2})}(1+\frac{t^2}{n})^{-\frac{n+1}{2}}, t\in R$。</p>
+<p>$$<br>\begin{align}<br>&amp;————————&amp;\<br>&amp;[1]\ X\sim\chi^2(n_1), Y\sim\chi^2(n_2), 独立 \Longrightarrow X+Y\sim\chi^2(n_1+n_2) \<br>&amp;[2]\ X\sim t(n),E(X)&#x3D;0, D(X)&#x3D;\frac{n}{n-2}\<br>&amp;[3]\ n \rightarrow \infty, t(n) \rightarrow N(0, 1)<br>\end{align}<br>$$</p>
+<p>（3）$F$ 分布：</p>
+<p>若 $X_1 \sim \chi^2(n_1)$，$X_2 \sim \chi^2(n_2)$，独立，则 $X&#x3D;\frac{X_1&#x2F;n_1}{X_2&#x2F;n_2}$ 服从自由度为 $(n1, n2)$ 的 $F$ 分布，即 $X\sim F(n_1, n_2)$。</p>
+<p>$$<br>\begin{align}<br>&amp;————————&amp;\<br>&amp;[1]\ X\sim F(n_1, n_2),\ 则\ \frac{1}{X} \sim F(n_2, n_1)\<br>\end{align}<br>$$</p>
+<p>正态分布的样本均值与样本方差的分布：</p>
+<p>设总体 $X\sim N(\mu, \sigma^2)$，$X_1, X_2, \cdots, X_n$ 为总体 $X$ 的一个样本，则：</p>
+<p>$\overline{X} \sim N(\mu, \frac{\sigma^2}{\mu}), \ \frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1), \ \overline{X} \ 与\ S^2\ 独立$。</p>
+<p>$\frac{\overline{X}-\mu}{S&#x2F;\sqrt{n}} \sim t(n-1)$。</p>
+<p>两个正态总体的样本均值与样本方差的分布：</p>
+<p>$\frac{S_1^2&#x2F;\sigma_1^2}{S_2^2&#x2F;\sigma_2^2} \sim F(n_1-1, n_2-1)$。</p>
+<p>$\frac{(\overline{X}-\overline{Y}) - (\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sim N(0, 1)$。</p>
+<h1 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h1><p>点估计：设总体 $X$ 的分布形式已知，但含有未知参数 $\theta$，用样本 $X_1, X_2, \cdots, X_n$ 构造统计量 $\hat{\theta}(X_1, X_2, \cdots, X_n)$ 来估计未知参数 $\theta$，称 $\hat{\theta}(X_1, X_2, \cdots, X_n)$ 为 $\theta$ 的点估计量， $\hat{\theta}(x_1, x_2, \cdots, x_n)$ 为点估计值。</p>
+<p>矩估计：用样本矩代替总体矩解出即可</p>
+<p>最大似然估计：使样本 $x_1, x_2, \cdots, x_n$ 出现的概率的最大的参数值 $\hat{\theta}$。</p>
+<p>（似然函数 $L(\theta)$，求极值可以先取对数再求导）</p>
+<p>无偏性：设 $x_1, x_2, \cdots, x_n$ 是来自总体 $X$ 的一个样本，$\hat{\theta} &#x3D; \hat{\theta}(X_1, X_2, \cdots,X_n)$ 为未知参数 $\theta$ 的估计量。若 $E(\hat{\theta}) &#x3D; \theta$，则称 $\hat{\theta}$ 为 $\theta$ 的无偏估计量；若 $\lim\limits_{n\rightarrow \infty} E(\hat{\theta}) &#x3D; \theta$，则称 $\hat{\theta}$ 为 $\theta$ 的渐进无偏估计量。</p>
+<p>有效性：设 $\hat{\theta}_1 &#x3D; \hat{\theta}_1(X_1, X_2, \cdots,X_n)$，$\hat{\theta}_2 &#x3D; \hat{\theta}_2(X_1, X_2, \cdots,X_n)$ 均为未知参数 $\theta$ 的无偏估计量，若 $D(\hat{\theta_1}) \le D(\hat{\theta_2})$，则称 $\hat{\theta_1}$ 比 $\hat{\theta_2}$ 更有效。</p>
+<p>一致性（相合性）：设 $\hat{\theta}_1 &#x3D; \hat{\theta}<em>1(X_1, X_2, \cdots,X_n)$ 为未知参数 $\theta$ 的估计量，若 $\forall{\epsilon} &gt;0, \lim\limits</em>{n\rightarrow\infty} P{|\hat{\theta_n}-\theta| &lt; \epsilon} &#x3D; 1$，即 $\hat{\theta} \overset{P}{\longrightarrow} \theta$，（也就是，$n \rightarrow \infty: \ E(\hat{\theta}) \rightarrow \theta, D(\hat{\theta}) \rightarrow \theta$）则称 $\hat{\theta}$ 为 $\theta$ 的一致估计。</p>
+<p>区间估计，假设检验：略</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://gopherteen.github.io">Gopher</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://gopherteen.github.io/2025/07/12/%E5%A4%A7%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">https://gopherteen.github.io/2025/07/12/大学/概率论与数理统计/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://gopherteen.github.io" target="_blank">Gopherの小木屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E5%AD%A6/">数学</a><a class="post-meta__tags" href="/tags/%E6%A6%82%E7%8E%87/">概率</a></div><div class="post-share"><div class="social-share" data-image="/images/%E5%A4%B4%E5%83%8F/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/07/12/%E5%A4%A7%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">数据结构</div></div><div class="info-2"><div class="info-item-1">树与二叉树节点拥有的子树的数量称为节点的度，树的度是树内各节点度的最大值 节点的层次从根开始定义，根为第一层 树中节点的最大层次称为树的深度（高度） 如果将树中节点的各子树看成从左到右是有次序的...</div></div></div></a><a class="pagination-related" href="/2025/07/12/%E5%A4%A7%E5%AD%A6/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/" title="复变函数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">复变函数</div></div><div class="info-2"><div class="info-item-1">第一章 复数与复变函数 有关共轭复数的几个运算性质：  ​ $\overline{z_1\pm z_2} &#x3D;\overline{z_1} \pm \overline{z_2}$ $\o...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/07/12/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" title="组合数学"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-12</div><div class="info-item-2">组合数学</div></div><div class="info-2"><div class="info-item-1">   Link Introduce    组合数学学习笔记    一、错排D(n) 表示 n 个元素的错排，易得 D(1) &#x3D; 0, D(2) &#x3D; 1, D(3) &#x3D...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/%E5%A4%B4%E5%83%8F/1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Gopher</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/GopherTeen"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">暂时没有新的消息哦</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">第一章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="toc-number">2.</span> <span class="toc-text">第二章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="toc-number">3.</span> <span class="toc-text">第三章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0"><span class="toc-number">4.</span> <span class="toc-text">第四章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0"><span class="toc-number">5.</span> <span class="toc-text">第五章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0"><span class="toc-number">6.</span> <span class="toc-text">第六章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0"><span class="toc-number">7.</span> <span class="toc-text">第七章</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/13/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%A0%91%E5%88%86%E6%B2%BB/" title="树分治">树分治</a><time datetime="2025-07-13T04:31:59.000Z" title="发表于 2025-07-13 12:31:59">2025-07-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/13/VSCode%20%E9%85%8D%E7%BD%AE/" title="VSCode 配置">VSCode 配置</a><time datetime="2025-07-13T01:04:49.000Z" title="发表于 2025-07-13 09:04:49">2025-07-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/12/%E5%A4%A7%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><time datetime="2025-07-11T16:38:51.000Z" title="发表于 2025-07-12 00:38:51">2025-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/12/%E5%A4%A7%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" title="概率论与数理统计">概率论与数理统计</a><time datetime="2025-07-11T16:34:23.000Z" title="发表于 2025-07-12 00:34:23">2025-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/12/%E5%A4%A7%E5%AD%A6/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/" title="复变函数">复变函数</a><time datetime="2025-07-11T16:27:14.000Z" title="发表于 2025-07-12 00:27:14">2025-07-12</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Gopher</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'all',
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: false,
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script></div></body></html>

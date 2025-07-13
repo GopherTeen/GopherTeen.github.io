@@ -1,0 +1,370 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>复变函数 | Gopherの小木屋</title><meta name="author" content="Gopher"><meta name="copyright" content="Gopher"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第一章 复数与复变函数 有关共轭复数的几个运算性质：  ​ $\overline{z_1\pm z_2} &#x3D;\overline{z_1} \pm \overline{z_2}$ $\overline{z_1 \cdot z_2} &#x3D;\overline{z_1} \cdot\overline{z_2}$ $\overline{\frac{z_1}{z_2}}&#x3D;\frac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="复变函数">
+<meta property="og:url" content="https://gopherteen.github.io/2025/07/12/%E5%A4%A7%E5%AD%A6/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="Gopherの小木屋">
+<meta property="og:description" content="第一章 复数与复变函数 有关共轭复数的几个运算性质：  ​ $\overline{z_1\pm z_2} &#x3D;\overline{z_1} \pm \overline{z_2}$ $\overline{z_1 \cdot z_2} &#x3D;\overline{z_1} \cdot\overline{z_2}$ $\overline{\frac{z_1}{z_2}}&#x3D;\frac">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gopherteen.github.io/images/%E5%A4%B4%E5%83%8F/1.png">
+<meta property="article:published_time" content="2025-07-11T16:27:14.000Z">
+<meta property="article:modified_time" content="2025-07-11T16:32:01.952Z">
+<meta property="article:author" content="Gopher">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gopherteen.github.io/images/%E5%A4%B4%E5%83%8F/1.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "复变函数",
+  "url": "https://gopherteen.github.io/2025/07/12/%E5%A4%A7%E5%AD%A6/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/",
+  "image": "https://gopherteen.github.io/images/%E5%A4%B4%E5%83%8F/1.png",
+  "datePublished": "2025-07-11T16:27:14.000Z",
+  "dateModified": "2025-07-11T16:32:01.952Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Gopher",
+      "url": "https://gopherteen.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="https://gopherteen.github.io/2025/07/12/%E5%A4%A7%E5%AD%A6/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '复变函数',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/_custom/mathfix.css"><meta name="generator" content="Hexo 7.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/%E5%A4%B4%E5%83%8F/1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Gopherの小木屋</span></a><a class="nav-page-title" href="/"><span class="site-name">复变函数</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">复变函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-11T16:27:14.000Z" title="发表于 2025-07-12 00:27:14">2025-07-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-11T16:32:01.952Z" title="更新于 2025-07-12 00:32:01">2025-07-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/">大学课程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="第一章-复数与复变函数"><a href="#第一章-复数与复变函数" class="headerlink" title="第一章 复数与复变函数"></a>第一章 复数与复变函数</h1><ol>
+<li>有关共轭复数的几个运算性质：</li>
+</ol>
+<p>​ $\overline{z_1\pm z_2} &#x3D;\overline{z_1} \pm \overline{z_2}$ $\overline{z_1 \cdot z_2} &#x3D;\overline{z_1} \cdot\overline{z_2}$ $\overline{\frac{z_1}{z_2}}&#x3D;\frac{\overline{z_1}}{\overline{z_2}}$ $\frac{1}{z}&#x3D;\frac{\overline{z}}{ { \lvert z \rvert ^2} }$</p>
+<ol start="2">
+<li>DeMorive 公式</li>
+</ol>
+<p>​ $z^n&#x3D;[r(\cos \theta + i \sin\theta)]^n&#x3D;r^n (\cos n\theta+i\sin n\theta)$</p>
+<ol start="3">
+<li><p>概念辨析：</p>
+<p> 开集，闭集，余集，边界，边界点，孤立点，有界集，无界集</p>
+<blockquote>
+<p>孤立点一定是边界点</p>
+</blockquote>
+<p> 区域（$D$，连通开集），闭区域（$\overline{D}$）</p>
+<blockquote>
+<p>全平面既是区域又是闭区域。</p>
+</blockquote>
+</li>
+<li><p>连续的定义：</p>
+<p> 如果 $\underset{z\rightarrow z_0}{\lim} f(z)&#x3D;z_0$ 成立，则称 $f(z)$ 在 $z_0$ 处连续。</p>
+</li>
+</ol>
+<h1 id="第二章-解析函数"><a href="#第二章-解析函数" class="headerlink" title="第二章 解析函数"></a>第二章 解析函数</h1><ol>
+<li><p>可导的定义：</p>
+<p> 如果 $\underset{\Delta z\rightarrow 0}{\lim} \frac{\Delta w}{\Delta z}&#x3D;\underset{\Delta z\rightarrow 0}{\lim} \frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}$ 存在有限的极限值 A，则称 $f(z)$ 在 $z_0$ 处可导。</p>
+<blockquote>
+<p>某点可导（可微） &#x3D;&#x3D;&gt; 连续</p>
+</blockquote>
+</li>
+<li><p>解析的定义：</p>
+<p> 某点及该点的邻域内处处可导，则称 $f(z)$ 在该点解析。</p>
+<blockquote>
+<p>解析是区域概念，点可导与点解析不同。</p>
+</blockquote>
+</li>
+<li><p>函数解析的充要条件：</p>
+<p> $f(z)&#x3D;u(x, y)+i v(x, y)$ 在 $z&#x3D;x+iy$ 处可导</p>
+<p> &lt;&#x3D;&#x3D;&gt;</p>
+<p> $u, v$ 在$(x,y)$ 处可微（一阶偏导存在且连续）， $u_x&#x3D;v_y, u_y&#x3D;-v_x$ （柯西——黎曼方程（C-R 方程））</p>
+<blockquote>
+<p>经典案例：</p>
+<p>$$<br>u(x,y)&#x3D;v(x,y)&#x3D;<br>\begin{cases}<br>{\frac{xy}{x^2+y^2} }, x^2+y^2 \ne 0\<br>0, else<br>\end{cases}<br>$$</p>
+</blockquote>
+<p> $f’(z)&#x3D;u_x+i v_x&#x3D;v_y+ iv_x&#x3D;u_x-i u_y&#x3D;v_y-iu_y$。</p>
+</li>
+<li><p>调和函数：</p>
+<p> 二元实函数 $\phi(x,y)$ 在区域 $D$ 内有二阶连续偏导数，且满足 $\phi_{xx}+\phi_{yy}&#x3D;0$。</p>
+<blockquote>
+<p>区域内解析 &#x3D;&#x3D;&gt; 实部和虚部都调和</p>
+<p>区域内解析 &lt;&#x3D; &#x3D;&gt; 区域内可微 + CR 方程 &lt;&#x3D; &#x3D;&gt; 虚部是实部的共轭调和（两个调和满足 CR 方程）</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="第三章-复变函数的积分"><a href="#第三章-复变函数的积分" class="headerlink" title="第三章 复变函数的积分"></a>第三章 复变函数的积分</h1><ol>
+<li><p>$\int_Cf(z)dz&#x3D;\int_Cudx-vdy+i\int_Cvdx+udy$ $\int_Cf(z)dz&#x3D;\int_a^bf(z(t))z’(t)dz$</p>
+<blockquote>
+<p>经典案例：</p>
+<p>$$<br>\oint_C \frac{dz}{ {(z-z_0)}^n}&#x3D;<br>\begin{cases}<br>2\pi i, n&#x3D;1\<br>0, else<br>\end{cases}<br>$$</p>
+</blockquote>
+</li>
+<li><p>柯西积分定理：设函数 $f(z)$ 在单连通区域 $D$ 内解析，则 $f(z)$ 在 $D$ 内沿任意一条简单闭曲线 $C$ 的积分 $\int_Cf(z)dz&#x3D;0$。</p>
+<blockquote>
+<p>辅助证明：需要证明 $f’(z)$ 连续这一条件。</p>
+<p>格林公式：$\oint_CPdx+Qdy&#x3D;\iint_D(Q_x-P_y)dxdy$</p>
+</blockquote>
+<p> 闭路变形原理</p>
+</li>
+<li><p>柯西积分公式：设 $f(z)$ 在简单闭曲线 $C$ 所围成的区域 $D$ 内解析，在 $\bar{D}&#x3D;D\cup C$ 上连续，$z_0$ 是 $D$ 内任一点，则 $f(z_0)&#x3D;\frac{1}{2\pi i}\oint_C\frac{f(z)}{z-z_0}dz$。</p>
+<blockquote>
+<p>推论：</p>
+<p>（平均值公式）设 $f(z)$ 在 $ \lvert z-z_0 \rvert &lt;R$ 内解析，在 $ \lvert z-z_0 \rvert \le R$ 上连续，则 $f(z_0)&#x3D;\frac{1}{2\pi}\int_0^{2\pi}f(z_0+Re^{i\theta})d\theta$。</p>
+<p>（最大模原理）</p>
+</blockquote>
+</li>
+<li><p>解析函数的高阶导数：（解析函数的导数仍然是解析的）</p>
+<p> 设函数 $f(z)$ 在简单闭曲线 $C$ 所围成的区域 $D$ 内解析，而在 $\bar{D}&#x3D;D\cup C$ 上连续，则 $f(z)$ 的各阶导函数均在 $D$ 内解析，对 $D$ 内任一点 $z$，有 $f^{(n)}(z)&#x3D;\frac{n!}{2\pi i}\oint_C\frac{f(\zeta)}{(\zeta-z)^{n+1}}d\zeta$。</p>
+</li>
+</ol>
+<h1 id="第四章-解析函数的级数表示"><a href="#第四章-解析函数的级数表示" class="headerlink" title="第四章 解析函数的级数表示"></a>第四章 解析函数的级数表示</h1><ol>
+<li><p>阿贝尔定理（幂级数收敛边界内绝对收敛，边界敛散性不定。）</p>
+</li>
+<li><p>泰勒级数:</p>
+<p> 设函数 $f(z)$ 在区域 $D$ 内解析，$z_0$ 为 $D$ 内一点，$R$ 为 $z_0$ 到 $D$ 的边界上各点的最短距离，则当 $ \lvert z-z_0 \rvert &lt;R$ 时，$f(z)$ 可展为幂级数 $f(z)&#x3D;\overset{\infty}{\underset{n&#x3D;0}{\sum}}C_n(z-z_0)^n$，其中 $C_n &#x3D; \frac{1}{n!}f^{(n)}(z_0)$，$n \in N^+$。</p>
+<blockquote>
+<p>若 $f(z)$ 在 $D$ 内有奇点，则 $R$ 为距离 $z_0$ 最近的一个奇点。</p>
+</blockquote>
+</li>
+<li><p>洛朗级数：</p>
+<p> 设函数 $f(z)$ 在圆环域 $R_1 &lt;  \lvert z-z_0 \rvert  &lt; R_2$ 内处处解析，则 $f(z)$ 一定能在此圆环域中展开为 $f(z)&#x3D;\overset{\infty}{\underset{n&#x3D;-\infty}{\sum}}C_n(z-z_0)^n$，其中 $C_n &#x3D; \frac{1}{2\pi i} \oint_C \frac{f(\zeta)}{(\zeta-z_0)^{n+1}}d\zeta$，$n\in Z$。</p>
+<blockquote>
+<p>级数中正整数次幂称为洛朗级数的解析部分，负整数次幂称为主要部分。</p>
+</blockquote>
+<blockquote>
+<p>重要公式：$1+z+z^2+\cdots + z^n +\cdots &#x3D; \frac{1}{z-1}$，$ \lvert z \rvert &lt;1$。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="第五章-留数及其应用"><a href="#第五章-留数及其应用" class="headerlink" title="第五章 留数及其应用"></a>第五章 留数及其应用</h1><ol>
+<li><p>孤立奇点：</p>
+<p> 可去奇点（$n &lt; 0$ 时，$C_n &#x3D; 0$）</p>
+<p> ​ &lt;&#x3D;&#x3D;&gt; $\underset{z\rightarrow z_0}{\lim}f(z)&#x3D;C_0\ne \infty$。</p>
+<p> 极点（对于正整数 $m$，有 $C_{-m}\ne 0$，而 $n &lt; -m$ 时，$C_n&#x3D;0$，则为 $m$ 阶极点 &lt;&#x3D;&#x3D;&gt; $f(z)&#x3D;\frac{1}{(z-z_0)^m}\phi(z)$，其中 $\phi(z)$ 在 $z_0$ 处解析且 $\phi(z_0)\ne 0$）</p>
+<p> ​ &lt;&#x3D;&#x3D;&gt; $\underset{z\rightarrow z_0}{\lim}(z-z_0)^mf(z)&#x3D;C_{-m}\ne 0$。</p>
+<p> 本性奇点</p>
+<blockquote>
+<p>经典案例：$f(z)&#x3D;\frac{1}{\sin\frac{1}{z}}$ 中，0 不是孤立奇点！</p>
+</blockquote>
+</li>
+<li><p>若 $f(z)$ 在 $z_0$ 解析，那么 $z_0$ 为 $f(z)$ 的 $m$ 阶零点 &lt;&#x3D;&#x3D;&gt; $f^{(n)}(z_0)&#x3D;0$，$n&#x3D;0,1,2,\cdots,m-1$；$f^{(m)}(z_0)\ne 0$。</p>
+</li>
+<li><p>函数在无穷远点的性态（略）</p>
+</li>
+<li><p>留数：$f(z)$ 在孤立奇点 $z_0$ 处的洛朗级数中负一次幂的系数 $C_{-1}&#x3D;Res[f(z), z_0]&#x3D;\frac{1}{2\pi i}\oint_C f(z)dz$。</p>
+</li>
+<li><p>函数在极点的留数：</p>
+<p> 若 $z_0$ 为 $f(z)$ 的简单极点，则 $Res[f(z), z_0]&#x3D;\underset{z\rightarrow z_0}{\lim}(z-z_0)f(z)$。</p>
+<p> 若 $f(z)&#x3D;\frac{P(z)}{Q(z)}$，其中 $P(z)$，$Q(z)$ 在 $z_0$ 处解析，若 $P(z_0)\ne 0$，$z_0$ 为 $Q(z)$ 的一阶零点，则 $z_0$ 为 $f(z)$ 的一阶极点，且 $Res[f(z), z_0]&#x3D;\frac{P(z_0)}{Q’(z_)}$。</p>
+<p> 如果 $z_0$ 为 $f(z)$ 的 $m$ 阶极点，则 $Res[f(z),z_0]&#x3D;\frac{1}{(m-1)!}\underset{z\rightarrow z_0}{\lim}\frac{d^{m-1}}{dz^{m-1}}[(z-z_0)^mf(z)]$。</p>
+</li>
+<li><p>若 $f(z)$ 在扩充复平面上只有有限个孤立奇点（包括无穷远点），则 $f(z)$ 在各点的留数总和为 0。</p>
+</li>
+<li><p>无穷远点的留数：$Res[f(z), \infty]&#x3D;-Res[f(\frac{1}{z})\cdot \frac{1}{z^2}, 0]$。</p>
+</li>
+</ol>
+<h1 id="第六章-共形映射"><a href="#第六章-共形映射" class="headerlink" title="第六章 共形映射"></a>第六章 共形映射</h1><p>第七章（略）</p>
+<h1 id="第八章-傅里叶变换"><a href="#第八章-傅里叶变换" class="headerlink" title="第八章 傅里叶变换"></a>第八章 傅里叶变换</h1><p>常用性质：</p>
+<p>常见变换对：</p>
+<h1 id="第九章-拉普拉斯变换"><a href="#第九章-拉普拉斯变换" class="headerlink" title="第九章 拉普拉斯变换"></a>第九章 拉普拉斯变换</h1><p>常用性质：</p>
+<p>$f(at) \leftrightarrow \frac{1}{a}F(\frac{s}{a})$</p>
+<blockquote>
+<p>$\mathcal{L}[f^{(n)}(t)]&#x3D;s^nF(s)-s^{n-1}f(0)-s^{n-2}f’(0)- \cdots - f^{(n-1)}(0)$</p>
+<p>$\mathcal{L}[f’(t)]&#x3D;sF(s)-f(0)$</p>
+</blockquote>
+<blockquote>
+<p>$\mathcal{L}[(\int_0^t)^nf(t)dt]&#x3D;\frac{1}{s^n}F(s)$</p>
+<p>$\mathcal{L}[\int_0^tf(t)dt]&#x3D;\frac{1}{s}F(s)$</p>
+</blockquote>
+<blockquote>
+<p>$F^{(n)}(s)&#x3D;(-1)^n\mathcal{L}[t^nf(t)]$</p>
+<p>$F’(s)&#x3D;-\mathcal{L}[tf(t)]$</p>
+</blockquote>
+<blockquote>
+<p>$(\int_s^\infty)^n F(s)ds&#x3D;\mathcal{L}[\frac{f(t)}{t^n}]$</p>
+<p>$\int_s^\infty F(s)ds&#x3D;\mathcal{L}[\frac{f(t)}{t}]$</p>
+</blockquote>
+<blockquote>
+<p>经典案例：</p>
+<p>$\int_0^{+\infty} \frac{\sin t}{t}dt &#x3D; \frac{\pi}{2}$ $\int_0^{+\infty}\frac{1-\cos t}{t}e^{-t}dt&#x3D;\frac{ln 2}{2}$</p>
+</blockquote>
+<p>$f(t-\tau)u(t-\tau) \leftrightarrow e^{-s\tau}F(s)$</p>
+<p>$e^{at}f(t) \leftrightarrow F(s-a)$</p>
+<p>周期函数的像函数：$f(t) \leftrightarrow \frac{1}{1-e^{-sT}}\int_0^Tf(t)e^{-st}dt$。</p>
+<p>常见变换对：</p>
+<p>$u(t) \leftrightarrow \frac{1}{s}$ $sgn(t) \leftrightarrow \frac{1}{s}$ $1 \leftrightarrow \frac{1}{s}$</p>
+<p>$e^{\alpha t} \leftrightarrow \frac{1}{s-a}$ $e^{j\omega t} \leftrightarrow \frac{1}{s-j\omega}$</p>
+<p>$\cos \omega t \leftrightarrow \frac{s}{s^2+\omega^2}$ $\sin \omega t \leftrightarrow \frac{\omega}{s^2+\omega^2}$</p>
+<p>$t^m \leftrightarrow \frac{m!}{s^{m+1}}$</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://gopherteen.github.io">Gopher</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://gopherteen.github.io/2025/07/12/%E5%A4%A7%E5%AD%A6/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/">https://gopherteen.github.io/2025/07/12/大学/复变函数/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://gopherteen.github.io" target="_blank">Gopherの小木屋</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/images/%E5%A4%B4%E5%83%8F/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/07/12/%E5%A4%A7%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" title="概率论与数理统计"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">概率论与数理统计</div></div><div class="info-2"><div class="info-item-1">第一章常见公式： $A - B &#x3D; A - A \cdot B&#x3D;A \cdot \overline {B}$ $P(A-B) &#x3D; P(A) - P(AB)$ 概率的...</div></div></div></a><a class="pagination-related" href="/2025/07/12/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" title="组合数学"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">组合数学</div></div><div class="info-2"><div class="info-item-1">   Link Introduce    组合数学学习笔记    一、错排D(n) 表示 n 个元素的错排，易得 D(1) &#x3D; 0, D(2) &#x3D; 1, D(3) &#x3D...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/%E5%A4%B4%E5%83%8F/1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Gopher</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/GopherTeen"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">暂时没有新的消息哦</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%A4%8D%E6%95%B0%E4%B8%8E%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">第一章 复数与复变函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%A7%A3%E6%9E%90%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">第二章 解析函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">第三章 复变函数的积分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E8%A7%A3%E6%9E%90%E5%87%BD%E6%95%B0%E7%9A%84%E7%BA%A7%E6%95%B0%E8%A1%A8%E7%A4%BA"><span class="toc-number">4.</span> <span class="toc-text">第四章 解析函数的级数表示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%95%99%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">第五章 留数及其应用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%85%B1%E5%BD%A2%E6%98%A0%E5%B0%84"><span class="toc-number">6.</span> <span class="toc-text">第六章 共形映射</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="toc-number">7.</span> <span class="toc-text">第八章 傅里叶变换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2"><span class="toc-number">8.</span> <span class="toc-text">第九章 拉普拉斯变换</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/13/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%A0%91%E5%88%86%E6%B2%BB/" title="树分治">树分治</a><time datetime="2025-07-13T04:31:59.000Z" title="发表于 2025-07-13 12:31:59">2025-07-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/13/VSCode%20%E9%85%8D%E7%BD%AE/" title="VSCode 配置">VSCode 配置</a><time datetime="2025-07-13T01:04:49.000Z" title="发表于 2025-07-13 09:04:49">2025-07-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/12/%E5%A4%A7%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><time datetime="2025-07-11T16:38:51.000Z" title="发表于 2025-07-12 00:38:51">2025-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/12/%E5%A4%A7%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" title="概率论与数理统计">概率论与数理统计</a><time datetime="2025-07-11T16:34:23.000Z" title="发表于 2025-07-12 00:34:23">2025-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/12/%E5%A4%A7%E5%AD%A6/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/" title="复变函数">复变函数</a><time datetime="2025-07-11T16:27:14.000Z" title="发表于 2025-07-12 00:27:14">2025-07-12</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Gopher</span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'all',
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: false,
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script></div></body></html>
